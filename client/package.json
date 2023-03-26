@@ -1,0 +1,41 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/icons-material": "^5.11.11",
+    "@mui/material": "^5.11.13",
+    "@mui/x-data-grid": "^6.0.2",
+    "@mui/x-data-grid-generator": "^6.0.2",
+    "@mui/x-date-pickers": "^6.0.3",
+    "@nivo/core": "^0.80.0",
+    "@nivo/geo": "^0.80.0",
+    "@nivo/line": "^0.80.0",
+    "@nivo/pie": "^0.80.0",
+    "@reduxjs/toolkit": "^1.9.3",
+    "@types/node": "18.15.5",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "eslint": "8.36.0",
+    "eslint-config-next": "13.2.4",
+    "lodash.debounce": "^4.0.8",
+    "moment": "^2.29.4",
+    "next": "13.2.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-redux": "^8.0.5",
+    "typescript": "5.0.2"
+  },
+  "devDependencies": {
+    "@types/lodash.debounce": "^4.0.7",
+    "dotenv": "^16.0.3"
+  }
+}
