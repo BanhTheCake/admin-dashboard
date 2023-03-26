@@ -14,9 +14,15 @@ const DefaultLayout = ({ children }: Props) => {
         if (isMobile) return false;
         return true;
     });
+
     const handleOpenOrClose = () => {
         setOpen(!open);
     };
+
+    useEffect(() => {
+        setOpen(!isMobile);
+    }, [isMobile]);
+
     return (
         <Box width={'100%'} display={'flex'} sx={{ minHeight: '100vh' }}>
             <Navbar
