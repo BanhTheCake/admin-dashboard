@@ -96,6 +96,17 @@ const DailyPage = (props: Props) => {
                                             },
                                         },
                                     },
+                                    ...(isMobile
+                                        ? {
+                                              textField: {
+                                                  sx: {
+                                                      '& .MuiInputBase-input': {
+                                                          fontSize: '16px',
+                                                      },
+                                                  },
+                                              },
+                                          }
+                                        : {}),
                                 }}
                             />
                             <DatePicker
@@ -111,6 +122,17 @@ const DailyPage = (props: Props) => {
                                             },
                                         },
                                     },
+                                    ...(isMobile
+                                        ? {
+                                              textField: {
+                                                  sx: {
+                                                      '& .MuiInputBase-input': {
+                                                          fontSize: '16px',
+                                                      },
+                                                  },
+                                              },
+                                          }
+                                        : {}),
                                 }}
                             />
                         </Stack>

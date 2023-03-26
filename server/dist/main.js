@@ -6,6 +6,7 @@ const common_1 = require("@nestjs/common");
 const http_exception_filter_1 = require("./http-exception.filter");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
+    app.set('trust proxy', 1);
     app.enableCors({
         origin: '*',
         credentials: true,
