@@ -7,6 +7,7 @@ import { useGetPerformanceQuery } from '@/store/api/customers.api';
 import moment from 'moment';
 import ErrorDisplay from '@/components/globals/ErrorDisplay';
 import Loading from '@/components/globals/Loading';
+import TableSkeleton from '@/components/Skeletons/Table.skeleton';
 
 const id = '63701cc1f03239b7f700000e';
 
@@ -82,14 +83,7 @@ const PerformancePage = () => {
                 title="PERFORMANCE"
                 subTitle="Track Your Affiliate Performance Here"
             />
-            <Loading
-                isLoading={isLoading}
-                loading={
-                    <Box sx={{ display: 'flex', height: '25vh' }}>
-                        <CircularProgress sx={{ mt: 'auto', mx: 'auto' }} />
-                    </Box>
-                }
-            >
+            <Loading isLoading={isLoading} loading={<TableSkeleton />}>
                 <ErrorDisplay isError={isError} display={'Nothing here ...'}>
                     <Box
                         width={'100%'}

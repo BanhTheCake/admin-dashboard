@@ -7,6 +7,7 @@ import {
     useTheme,
     useMediaQuery,
     CircularProgress,
+    Skeleton,
 } from '@mui/material';
 import { useGetOverallQuery } from '@/store/api/overall.api';
 import { ResponsiveLine } from '@nivo/line';
@@ -62,9 +63,12 @@ const MonthlyPage = (props: Props) => {
             <Loading
                 isLoading={isLoading}
                 loading={
-                    <Box sx={{ display: 'flex', height: '25vh' }}>
-                        <CircularProgress sx={{ mt: 'auto', mx: 'auto' }} />
-                    </Box>
+                    <Skeleton
+                        variant={'rounded'}
+                        width={'100%'}
+                        height={'75vh'}
+                        sx={{ mt: 2 }}
+                    />
                 }
             >
                 <ErrorDisplay isError={isError} display={'Nothing here ...'}>

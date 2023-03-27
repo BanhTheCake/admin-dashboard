@@ -13,6 +13,7 @@ import Donuts from '@/components/globals/Donuts';
 import ErrorDisplay from '@/components/globals/ErrorDisplay';
 import Loading from '@/components/globals/Loading';
 import { useAppSelector } from '@/store/store';
+import BreakdownSkeleton from '@/components/Skeletons/Breakdown.skeleton';
 
 const BreakdownPage = () => {
     const mode = useAppSelector((state) => state.mode.mode);
@@ -43,14 +44,7 @@ const BreakdownPage = () => {
     return (
         <DefaultLayout>
             <Title subTitle="Breakdown sales by category" title="BREAKDOWN" />
-            <Loading
-                isLoading={isLoading}
-                loading={
-                    <Box sx={{ display: 'flex', height: '25vh' }}>
-                        <CircularProgress sx={{ mt: 'auto', mx: 'auto' }} />
-                    </Box>
-                }
-            >
+            <Loading isLoading={isLoading} loading={<BreakdownSkeleton />}>
                 <ErrorDisplay isError={isError} display={'Nothing here ...'}>
                     <Stack width={'100%'} height={'75vh'} position={'relative'}>
                         {pieData && <Donuts pieData={pieData} />}

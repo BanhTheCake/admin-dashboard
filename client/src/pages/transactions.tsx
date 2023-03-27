@@ -14,6 +14,7 @@ import CustomToolbar from '@/components/globals/CustomToolbar';
 import debounce from 'lodash.debounce';
 import ErrorDisplay from '@/components/globals/ErrorDisplay';
 import Loading from '@/components/globals/Loading';
+import TableSkeleton from '@/components/Skeletons/Table.skeleton';
 
 const TransactionsPage = () => {
     const theme = useTheme();
@@ -92,14 +93,7 @@ const TransactionsPage = () => {
                 title="TRANSACTIONS"
                 subTitle="Entire list of transactions"
             />
-            <Loading
-                isLoading={isLoading}
-                loading={
-                    <Box sx={{ display: 'flex', height: '25vh' }}>
-                        <CircularProgress sx={{ mt: 'auto', mx: 'auto' }} />
-                    </Box>
-                }
-            >
+            <Loading isLoading={isLoading} loading={<TableSkeleton />}>
                 <ErrorDisplay isError={isError} display={'Nothing here ...'}>
                     <Box flex={1} width={'100%'} overflow={'auto'}>
                         <Box

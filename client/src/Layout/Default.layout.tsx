@@ -10,10 +10,7 @@ type Props = {
 
 const DefaultLayout = ({ children }: Props) => {
     const isMobile = useMediaQuery('(max-width:800px)');
-    const [open, setOpen] = useState(() => {
-        if (isMobile) return false;
-        return true;
-    });
+    const [open, setOpen] = useState(true);
 
     const handleOpenOrClose = () => {
         setOpen(!open);

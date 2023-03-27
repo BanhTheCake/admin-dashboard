@@ -6,6 +6,7 @@ import { useGetAdminsQuery } from '@/store/api/customers.api';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import ErrorDisplay from '@/components/globals/ErrorDisplay';
 import Loading from '@/components/globals/Loading';
+import TableSkeleton from '@/components/Skeletons/Table.skeleton';
 
 const AdminPage = () => {
     const theme = useTheme();
@@ -35,14 +36,7 @@ const AdminPage = () => {
                 title="ADMIN"
                 subTitle="Managing admins and list of admins"
             />
-            <Loading
-                isLoading={isLoading}
-                loading={
-                    <Box sx={{ display: 'flex', height: '25vh' }}>
-                        <CircularProgress sx={{ mt: 'auto', mx: 'auto' }} />
-                    </Box>
-                }
-            >
+            <Loading isLoading={isLoading} loading={<TableSkeleton />}>
                 <ErrorDisplay isError={isError} display={'Nothing here ...'}>
                     <Box
                         width={'100%'}

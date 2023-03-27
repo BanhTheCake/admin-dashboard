@@ -24,6 +24,7 @@ import moment from 'moment';
 import Donuts from '@/components/globals/Donuts';
 import ErrorDisplay from '@/components/globals/ErrorDisplay';
 import Loading from '@/components/globals/Loading';
+import DashboardSkeleton from '@/components/Skeletons/Dashboard.skeleton';
 
 export default function Home() {
     const isNonMobile = useMediaQuery('(min-width:1250px)');
@@ -113,14 +114,7 @@ export default function Home() {
                         Download reports
                     </Button>
                 </Stack>
-                <Loading
-                    isLoading={isLoading}
-                    loading={
-                        <Box sx={{ display: 'flex', height: '25vh' }}>
-                            <CircularProgress sx={{ mt: 'auto', mx: 'auto' }} />
-                        </Box>
-                    }
-                >
+                <Loading isLoading={isLoading} loading={<DashboardSkeleton />}>
                     <ErrorDisplay
                         display={'Nothing here ...'}
                         isError={isError}

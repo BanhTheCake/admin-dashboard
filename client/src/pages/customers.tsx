@@ -12,6 +12,7 @@ import { Box, useTheme, CircularProgress, Typography } from '@mui/material';
 import { useGetAllCustomersQuery } from '@/store/api/customers.api';
 import ErrorDisplay from '@/components/globals/ErrorDisplay';
 import Loading from '@/components/globals/Loading';
+import TableSkeleton from '@/components/Skeletons/Table.skeleton';
 
 const CustomersPage = () => {
     const theme = useTheme();
@@ -80,14 +81,7 @@ const CustomersPage = () => {
     return (
         <DefaultLayout>
             <Title title="CUSTOMERS" subTitle="List of Customers" />
-            <Loading
-                isLoading={isLoading}
-                loading={
-                    <Box sx={{ display: 'flex', height: '25vh' }}>
-                        <CircularProgress sx={{ mt: 'auto', mx: 'auto' }} />
-                    </Box>
-                }
-            >
+            <Loading isLoading={isLoading} loading={<TableSkeleton />}>
                 <ErrorDisplay isError={isError} display={'Nothing here ...'}>
                     <Box flex={1} width={'100%'} overflow={'auto'}>
                         <Box

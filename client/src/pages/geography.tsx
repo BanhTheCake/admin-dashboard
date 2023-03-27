@@ -13,6 +13,7 @@ import { ResponsiveChoropleth } from '@nivo/geo';
 import genFeatures from '@/config/features.config';
 import ErrorDisplay from '@/components/globals/ErrorDisplay';
 import Loading from '@/components/globals/Loading';
+import GeographySkeleton from '@/components/Skeletons/Geography.skeleton';
 
 const GeographyPage = () => {
     const isMobile = useMediaQuery('(max-width:600px)');
@@ -25,14 +26,7 @@ const GeographyPage = () => {
                 title="GEOGRAPHY"
                 subTitle="Find Where your users are located"
             />
-            <Loading
-                isLoading={isLoading}
-                loading={
-                    <Box sx={{ display: 'flex', height: '25vh' }}>
-                        <CircularProgress sx={{ mt: 'auto', mx: 'auto' }} />
-                    </Box>
-                }
-            >
+            <Loading isLoading={isLoading} loading={<GeographySkeleton />}>
                 <ErrorDisplay isError={isError} display={'Nothing here ...'}>
                     {geographyData && (
                         <Box
